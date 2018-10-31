@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="obj\Debug\netcoreapp2.1\" />
+  </ItemGroup>
+
 </Project>

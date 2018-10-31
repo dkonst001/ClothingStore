@@ -180,23 +180,7 @@ namespace Repository.Sql.SqlRepositories
 				using (var trx = db.Database.BeginTransaction())
 				{
 
-					// db.Entry(updatedT).State = EntityState.Modified;
-					// await db.SaveChangesAsync();
-
-					//var transaction = await Get(id);
-					//// Simpliest way to change transactions items is to remove the existing ones and add the nes ones
-					//if (transaction.Items != null)
-					//{
-
-					//	while (transaction.Items.Count() > 0)
-					//	{
-					//		var item = transaction.Items.ToArray()[0];
-					//		await itemRepository.Delete(item.Id);
-					//		//db.Items.Remove(item);
-					//		// Prepare quantities to update Inventory 
-					//		inventoryUpdate = ChangeInventory(inventoryUpdate, item.ProductId, increment * (-1));
-					//	}
-					//}
+					
 					if (updatedT.Items != null)
 					{
 						foreach (var item in updatedT.Items)
@@ -204,7 +188,6 @@ namespace Repository.Sql.SqlRepositories
 							item.TransactionId = updatedT.Id;
 							db.Entry(item).State = EntityState.Modified;
 
-							// await itemRepository.Add(item);
 							// Prepare quantities to update Inventory 
 							inventoryUpdate = ChangeInventory(inventoryUpdate, item.ProductId, increment);
 						}
