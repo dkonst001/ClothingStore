@@ -3,7 +3,6 @@ using Repository.Interface.Models;
 using Repository.Interface.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -66,20 +65,14 @@ namespace Repository.Sql.SqlRepositories
 							{
 								inventoryUpdate = ChangeInventory(inventoryUpdate, item.ProductId, increment);
 							}
-
-
-
 						}
-
 						await UpdateInventory(inventoryUpdate);
-
 					}
 					await db.SaveChangesAsync();
 
 					// Commit transaction if all commands succeed, transaction will auto-rollback
 					// will disposed if either commands fails
 					trx.Commit();
-
 				}
 			}
 			catch (Exception ex)
@@ -102,7 +95,6 @@ namespace Repository.Sql.SqlRepositories
 			{
 				using (var trx = db.Database.BeginTransaction())
 				{
-
 					transaction = await Get(id);
 
 					if (transaction != null)
@@ -116,7 +108,6 @@ namespace Repository.Sql.SqlRepositories
 								// Prepare quantities to update Inventory 
 								inventoryUpdate = ChangeInventory(inventoryUpdate, item.ProductId, increment * (-1));
 							}
-
 							await UpdateInventory(inventoryUpdate);
 						}
 
@@ -148,7 +139,6 @@ namespace Repository.Sql.SqlRepositories
 			}
 			catch (Exception ex)
 			{
-
 				// TODO: handle execptions  
 				throw;
 			}
@@ -180,7 +170,6 @@ namespace Repository.Sql.SqlRepositories
 				using (var trx = db.Database.BeginTransaction())
 				{
 
-					
 					if (updatedT.Items != null)
 					{
 						foreach (var item in updatedT.Items)
