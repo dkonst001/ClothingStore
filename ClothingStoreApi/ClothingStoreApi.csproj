@@ -9,11 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="obj\Debug\netcoreapp2.1\" />
     <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="obj\Debug\netcoreapp2.1\ClothingStoreApi.pdb" />
   </ItemGroup>
 
   <ItemGroup>
