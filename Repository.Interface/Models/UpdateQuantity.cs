@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repository.Interface
+namespace Repository.Interface.Models
 {
 	public class UpdateQuantity
 	{
