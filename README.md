@@ -66,7 +66,7 @@ Add purchase:
 	
 	}
 
-Add purchase:
+Update Return:
 
 - //api/returns
 
